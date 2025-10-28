@@ -1,0 +1,110 @@
+{
+    "target": "https://www.google.com",
+    "recon_data": {
+        "url_final": "https://www.google.com/",
+        "status_code": 200,
+        "headers": {
+            "Date": "Tue, 28 Oct 2025 03:15:03 GMT",
+            "Expires": "-1",
+            "Cache-Control": "private, max-age=0",
+            "Content-Type": "text/html; charset=UTF-8",
+            "Content-Security-Policy-Report-Only": "object-src 'none';base-uri 'self';script-src 'nonce-nQz8ovdzRPdZ4p-0xaefKA' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp",
+            "Cross-Origin-Opener-Policy": "same-origin-allow-popups; report-to=\"gws\"",
+            "Report-To": "{\"group\":\"gws\",\"max_age\":2592000,\"endpoints\":[{\"url\":\"https://csp.withgoogle.com/csp/report-to/gws/other\"}]}",
+            "Accept-CH": "Sec-CH-Prefers-Color-Scheme, Downlink, RTT, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version, Sec-CH-UA-Arch, Sec-CH-UA-Model, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version-List, Sec-CH-UA-WoW64",
+            "Permissions-Policy": "unload=()",
+            "P3P": "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
+            "Content-Encoding": "br",
+            "Server": "gws",
+            "X-XSS-Protection": "0",
+            "X-Frame-Options": "SAMEORIGIN",
+            "Set-Cookie": "AEC=AaJma5v1TB5ugoD6pzdk2AmUOWrme3vHSazqD44QS4QUwFRJZNIeeDdMWQ; expires=Sun, 26-Apr-2026 03:15:03 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax, NID=526=thYYE09gMxjmdxLMPBNqm7uTa1d1Dd67FZKq0FtiScOGnoWSN5RXec96kHNMY_LcdlvUOEeF8HIOxn5HdD47hnTU5xJK5jWChDPhCkLeu1nqTD316TJWI34f-Eikje1a4UYdcPSOmzSRYx68iPnKQ34hFZ77G56g40-c0mbnUe0a6XcwrunkfJXl8BGU3rJ-bi45_nZF5zu-hYzTbnFoys5o; expires=Wed, 29-Apr-2026 03:15:03 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=none",
+            "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "Transfer-Encoding": "chunked"
+        },
+        "content_preview": "<!doctype html><html itemscope=\"\" itemtype=\"http://schema.org/WebPage\" lang=\"en\"><head><meta charset=\"UTF-8\"><meta content=\"origin\" name=\"referrer\"><link href=\"//www.gstatic.com/images/branding/searchlogo/ico/favicon.ico\" rel=\"icon\"><meta content=\"/images/branding/googleg/1x/googleg_standard_color_128dp.png\" itemprop=\"image\"><style>@font-face{font-family:'Google Sans';font-style:normal;font-weight:400 700;font-display:optional;src:url(//fonts.gstatic.com/s/googlesans/v29/4UaGrENHsxJlGDuGo1OIlL3Owp4.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:optional;src:url(//fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEF"
+    },
+    "discovered_endpoints": [
+        "https://www.google.com",
+        "https://www.google.com/intl/en/about.html?",
+        "https://www.google.com/intl/en/policies/terms/?",
+        "http://www.google.com/history/optout?hl=en",
+        "https://www.google.com/imghp?hl=en&tab=wi",
+        "https://www.google.com/preferences?hl=en",
+        "https://www.google.com/advanced_search?hl=en&authuser=0",
+        "https://www.google.com/intl/en/about/products?tab=wh",
+        "https://www.google.com/intl/en/ads/?",
+        "https://www.google.com/services/?",
+        "https://www.google.com/intl/en/policies/privacy/?"
+    ],
+    "vulnerabilities": [
+        {
+            "type": "Missing Security Header",
+            "severity": "Medium",
+            "description": "O cabeçalho de segurança 'Strict-Transport-Security' está ausente.",
+            "details": "Este cabeçalho é crucial para mitigar ataques como Strict-Transport-Security.",
+            "header": "Strict-Transport-Security"
+        },
+        {
+            "type": "Missing Security Header",
+            "severity": "Medium",
+            "description": "O cabeçalho de segurança 'X-Content-Type-Options' está ausente.",
+            "details": "Este cabeçalho é crucial para mitigar ataques como X-Content-Type-Options.",
+            "header": "X-Content-Type-Options"
+        },
+        {
+            "type": "Weak Security Header Configuration",
+            "severity": "Low",
+            "description": "O cabeçalho 'X-Frame-Options' está presente, mas com configuração potencialmente fraca.",
+            "details": "Valor esperado: começar com 'DENY'. Valor atual: 'SAMEORIGIN'.",
+            "header": "X-Frame-Options"
+        },
+        {
+            "type": "Missing Security Header",
+            "severity": "Medium",
+            "description": "O cabeçalho de segurança 'Content-Security-Policy' está ausente.",
+            "details": "Este cabeçalho é crucial para mitigar ataques como Content-Security-Policy.",
+            "header": "Content-Security-Policy"
+        },
+        {
+            "type": "Missing Security Header",
+            "severity": "Medium",
+            "description": "O cabeçalho de segurança 'Referrer-Policy' está ausente.",
+            "details": "Este cabeçalho é crucial para mitigar ataques como Referrer-Policy.",
+            "header": "Referrer-Policy"
+        }
+    ],
+    "fuzzing_results": [],
+    "ai_analysis": [
+        {
+            "original_vulnerability": "O cabeçalho de segurança 'Strict-Transport-Security' está ausente.",
+            "ai_severity": "High",
+            "ai_summary": "A ausência do cabeçalho Strict-Transport-Security expõe o site a ataques de downgrade de protocolo, permitindo conexões inseguras HTTP.",
+            "ai_mitigation": "Configurar o cabeçalho Strict-Transport-Security (HSTS) com no mínimo 'max-age=31536000; includeSubDomains; preload' para forçar o uso de HTTPS e proteger contra ataques de interceptação."
+        },
+        {
+            "original_vulnerability": "O cabeçalho de segurança 'X-Content-Type-Options' está ausente.",
+            "ai_severity": "Medium",
+            "ai_summary": "Sem o cabeçalho X-Content-Type-Options, o navegador pode interpretar erroneamente tipos MIME dos recursos, aumentando o risco de ataques de injeção.",
+            "ai_mitigation": "Incluir o cabeçalho X-Content-Type-Options com o valor 'nosniff' para garantir que o navegador respeite o tipo MIME declarado e evitar ataques baseados em MIME sniffing."
+        },
+        {
+            "original_vulnerability": "O cabeçalho 'X-Frame-Options' está presente, mas com configuração potencialmente fraca.",
+            "ai_severity": "Low",
+            "ai_summary": "O valor 'SAMEORIGIN' permite que a página seja incorporada em iframes do mesmo domínio, o que pode ser aceitável mas tem menor proteção contra clickjacking comparado a 'DENY'.",
+            "ai_mitigation": "Avaliar a necessidade real de permitir 'SAMEORIGIN'. Se possível, alterar para 'DENY' para impedir completamente o carregamento da página em iframes, prevenindo ataques de clickjacking."
+        },
+        {
+            "original_vulnerability": "O cabeçalho de segurança 'Content-Security-Policy' está ausente.",
+            "ai_severity": "High",
+            "ai_summary": "Sem a Content-Security-Policy, a aplicação está vulnerável a ataques de Cross-Site Scripting (XSS) e injeção de conteúdo malicioso.",
+            "ai_mitigation": "Implementar uma política de Content-Security-Policy restritiva, definindo fontes confiáveis para scripts, estilos e outros recursos para reduzir riscos de injeção de código."
+        },
+        {
+            "original_vulnerability": "O cabeçalho de segurança 'Referrer-Policy' está ausente.",
+            "ai_severity": "Medium",
+            "ai_summary": "A ausência do Referrer-Policy pode levar ao envio excessivo de informações sensíveis via cabeçalhos HTTP Referer para terceiros.",
+            "ai_mitigation": "Configurar o cabeçalho Referrer-Policy com uma política adequada como 'strict-origin-when-cross-origin' para limitar o compartilhamento de informações de referência."
+        }
+    ]
+}
